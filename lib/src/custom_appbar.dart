@@ -5,12 +5,15 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Color textColor;
   final FontWeight fontWeight;
   final double fontSize;
+  final List<Widget> trailing;
+
   const CustomAppBar(
       {Key? key,
       required this.title,
       required this.textColor,
       required this.fontSize,
-      required this.fontWeight})
+      required this.fontWeight,
+      this.trailing = const []})
       : preferredSize = const Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -27,13 +30,21 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return SafeArea(
       child: Container(
         color: Colors.black,
-        padding: EdgeInsets.only(top: 16, left: 16),
-        child: Text(
-          widget.title,
-          style: TextStyle(
-              color: widget.textColor,
-              fontWeight: widget.fontWeight,
-              fontSize: widget.fontSize),
+        padding: EdgeInsets.all(16),
+        child: Row(
+          children: <Widget>[
+            Text(
+              widget.title,
+              style: TextStyle(
+                  color: widget.textColor,
+                  fontWeight: widget.fontWeight,
+                  fontSize: widget.fontSize),
+            ),
+            Spacer(),
+            Row(
+              children: widget.trailing,
+            )
+          ]
         ),
       ),
     );

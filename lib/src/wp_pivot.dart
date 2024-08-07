@@ -20,6 +20,7 @@ class WpPivot extends StatefulWidget implements PreferredSizeWidget {
     this.titleFontSize = 16,
     this.titleColor = Colors.white,
     required this.title,
+    this.trailing = const []
   }) : super(key: key);
 
   /// Background color of the Appbar and tab bar, default is [Colors.black]
@@ -50,6 +51,10 @@ class WpPivot extends StatefulWidget implements PreferredSizeWidget {
 
   /// Color of pivot title, default is [Colors.white]
   final Color titleColor;
+
+  /// Trailing widgets (like AppBar.actions)
+  final List<Widget> trailing;
+
   @override
   State<StatefulWidget> createState() => WpPivotState();
 
@@ -72,6 +77,7 @@ class WpPivotState extends State<WpPivot> {
         fontSize: widget.titleFontSize,
         fontWeight: widget.titleFontWeight,
         textColor: widget.titleColor,
+        trailing: widget.trailing
       ),
       body: Column(
         children: <Widget>[

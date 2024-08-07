@@ -41,6 +41,9 @@ GlobalKey<WpPivotState> globalKey = GlobalKey();
           titleColor: Colors.white,
           titleFontSize: 14,
           titleFontWeight: FontWeight.bold,
+          trailing: [
+            ...
+          ]
         ),
      );
 }
